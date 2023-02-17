@@ -1,11 +1,56 @@
+*.class
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+.git/
+.svn/
+
+# Java Binaries
+*.[Jj][Aa][Rr]
+*.[Ww][Aa][Rr]
+*.[Ee][Aa][Rr]
+*.[Cc][Ll][Aa][Ss][Ss]
+
+### Linux ###
+# Linux Installer files
+*.[Rr][Pp][Mm]
+
+# Binary files
+*.[Bb][Ii][Nn]
+*.[Ss][Oo]
+
+### MicrosoftOffice ###
+# Excel Backup File
+*.[Xx][Ll][Kk]
+
+# Visio autosave temporary files
+*.~vsdx
+.vscode
+.vs/
+
+# STS (Spring Tool Suite)
+.springBeans
+.factorypath
+
+### intellij ###
+.idea
+*.iml
+
+### Maven ###
 target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!*.[Cc]ache/
