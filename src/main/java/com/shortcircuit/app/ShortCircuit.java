@@ -16,7 +16,7 @@ public class ShortCircuit extends Recipe {
 
     @Override
     public @NotNull String getDescription() {
-        return "Change the | / & operator to || / && when an expression has Boolean-like operand";
+        return "Change a non-short-circuit logic in a boolean context to a short-circuit logic.";
     }
 
     @Override
