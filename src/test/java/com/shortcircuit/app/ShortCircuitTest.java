@@ -17,13 +17,13 @@ class ShortCircuitTest implements RewriteTest {
                 java(
                         """
                                     class SomeClass {
-                                        public String should_be_changed_or() {
-                                            if (true | false) {
-                                                return "True!";
-                                            } else {
-                                                return "Something";
-                                            }
-                                        }
+                                         public String should_be_changed_or() {
+                                               if (true | false) {
+                                                   return "True!";
+                                               } else {
+                                                   return "Something";
+                                               }
+                                           }
                                         private void should_not_be_changed() {
                                             int a = 25;
                                             int b = 15;
@@ -33,13 +33,13 @@ class ShortCircuitTest implements RewriteTest {
                                 """,
                         """
                                     class SomeClass {
-                                        public String should_be_changed_or() {
-                                            if (true || false) {
-                                                return "True!";
-                                            } else {
-                                                return "Something";
-                                            }
-                                        }
+                                         public String should_be_changed_or() {
+                                               if (true || false) {
+                                                   return "True!";
+                                               } else {
+                                                   return "Something";
+                                               }
+                                           }
                                         private void should_not_be_changed() {
                                             int a = 25;
                                             int b = 15;
@@ -83,6 +83,38 @@ class ShortCircuitTest implements RewriteTest {
                                             int a = 25;
                                             int b = 15;
                                             int c = a & b;
+                                        }
+                                    }
+                                """));
+    }
+
+    @Test
+    void short_circuit_and_or() {
+        rewriteRun(
+                java(
+                        """
+                                    class SomeClass {
+                            
+                                        public String should_be_changed_and() {
+                                            if (true & false || true & true) {
+                                                return "False!";
+                                           }
+                                           else {
+                                                return "Something";
+                                            }
+                                        }
+                                    }
+                                """,
+                        """
+                                    class SomeClass {
+                            
+                                        public String should_be_changed_and() {
+                                            if (true && false || true && true) {
+                                                return "False!";
+                                           }
+                                           else {
+                                                return "Something";
+                                            }
                                         }
                                     }
                                 """));
