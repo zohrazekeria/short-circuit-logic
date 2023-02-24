@@ -33,6 +33,10 @@ public class ShortCircuit extends Recipe {
         }
         return false;
     }
+    @Override
+    public boolean causesAnotherCycle() {
+        return true;
+    }
     public class SayBinaryVisitor extends JavaIsoVisitor<ExecutionContext> {
         @Override
         public J.Binary visitBinary(J.Binary binary, ExecutionContext context) {
