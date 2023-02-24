@@ -89,7 +89,7 @@ class ShortCircuitTest implements RewriteTest {
     }
 
     @Test
-    void short_circuit_and_or() {
+    void short_circuit_multi_and() {
         rewriteRun(
                 java(
                         """

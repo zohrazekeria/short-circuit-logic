@@ -21,7 +21,7 @@ public class ShortCircuit extends Recipe {
 
     @Override
     protected @NotNull JavaIsoVisitor<ExecutionContext> getVisitor() {
-        return new SayBinaryVisitor();
+        return new VisitBinaryVisitor();
     }
 
     private boolean isBinaryBoolean(J.Binary binary) {
@@ -33,11 +33,13 @@ public class ShortCircuit extends Recipe {
         }
         return false;
     }
+
     @Override
     public boolean causesAnotherCycle() {
         return true;
     }
-    public class SayBinaryVisitor extends JavaIsoVisitor<ExecutionContext> {
+
+    public class VisitBinaryVisitor extends JavaIsoVisitor<ExecutionContext> {
         @Override
         public J.Binary visitBinary(J.Binary binary, ExecutionContext context) {
             if (isBinaryBoolean(binary)) {
